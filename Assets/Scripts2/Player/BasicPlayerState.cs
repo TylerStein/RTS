@@ -6,8 +6,12 @@ namespace RTS2.Player
 {
     public class BasicPlayerState : MonoBehaviour, IPlayerState
     {
-        public Component entitySelectionHandler;
+        [SerializeField] private int playerIndex;
+        [SerializeField] private Component entitySelectionHandler;
 
+        public int GetPlayerIndex() {
+            return playerIndex;
+        }
         public IEntitySelectionHandler GetEntitySelectionHandler() {
             return (IEntitySelectionHandler)entitySelectionHandler;
         }

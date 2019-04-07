@@ -9,6 +9,8 @@ namespace RTS2.Entity
         string GetEntityName();
         EAssetType GetAssetType();
         GameObject GetGameObject();
+        int GetOwningPlayerIndex();
+        void SetOwningPlayerIndex(int index);
 
         void SetActionTargetEntities(IEntity[] entities);
         void SetActionTargetLocation(Vector3 location);

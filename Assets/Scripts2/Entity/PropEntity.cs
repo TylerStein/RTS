@@ -8,6 +8,7 @@ namespace RTS2.Entity
     {
         [SerializeField] string entityName = "Generic Prop";
         [SerializeField] bool isSelected = false;
+        [SerializeField] int playerIndex;
 
         public void AddActionTargetEntities(IEntity[] entities) {
             //
@@ -19,6 +20,14 @@ namespace RTS2.Entity
 
         public EAssetType GetAssetType() {
             return EAssetType.PROP;
+        }
+
+        public int GetOwningPlayerIndex() {
+            return playerIndex;
+        }
+
+        public void SetOwningPlayerIndex(int index) {
+            playerIndex = index;
         }
 
         public string GetEntityName() {

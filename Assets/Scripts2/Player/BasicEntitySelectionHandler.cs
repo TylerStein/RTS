@@ -8,6 +8,10 @@ namespace RTS2.Player
     {
         private List<IEntity> selectedEntities;
 
+        BasicEntitySelectionHandler() {
+            selectedEntities = new List<IEntity>();
+        }
+
         public IEntity GetSelectedEntity(int index = 0) {
             if (selectedEntities.Count >= index) throw new UnityException("EntityIndexOutOfBouns: There is no entity at index " + index + "!");
             else return selectedEntities[index];
