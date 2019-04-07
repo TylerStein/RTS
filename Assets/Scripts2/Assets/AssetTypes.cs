@@ -2,6 +2,7 @@
 {
     public enum EAssetType
     {
-        NULL = 0
+        NULL = 0,
+        PROP = 1
     }
 }
