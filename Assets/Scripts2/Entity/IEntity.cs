@@ -16,5 +16,7 @@ namespace RTS2.Entity
         void SetActionTargetLocation(Vector3 location);
         void AddActionTargetEntities(IEntity[] entities);
         void AddActionTargetLocation(Vector3 location);
+
+        Behaviour.BehaviourDependency[] GetBehaviourDependencies();
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5415439482309941816}
   - component: {fileID: 8082749944118575397}
   - component: {fileID: 874705959077723017}
+  - component: {fileID: 3198764105173409657}
   m_Layer: 0
   m_Name: Prop_Cube
   m_TagString: Entity
@@ -104,6 +105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a244c20fc67404d8544bcf53305378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: Cube
-  isSelected: 0
   playerIndex: 0
+  entityBehaviours:
+  - {fileID: 3198764105173409657}
+--- !u!114 &3198764105173409657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6260503415107618780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c7852c3b0795f4b87f221ff99c3bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 874705959077723017}
