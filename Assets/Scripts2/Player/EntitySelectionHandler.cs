@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using RTS2.Entities;
 namespace RTS2.Player
 {
+    /// <summary>
+    ///     Tracks selected entities for a player
+    /// </summary>
     public class EntitySelectionHandler : MonoBehaviour
     {
         private List<Entity> selectedEntities = new List<Entity>();

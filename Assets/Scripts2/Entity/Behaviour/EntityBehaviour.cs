@@ -29,6 +29,10 @@ namespace RTS2.Entities.Behaviours
             return behaviourDependencies;
         }
 
+        public virtual void Initialize() {
+            //
+        }
+
         public virtual void OnPrimarySelect() {
             //
         }

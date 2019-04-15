@@ -13,6 +13,12 @@ namespace RTS2.Entities
         [SerializeField] protected int playerIndex;
         [SerializeField] protected List<EntityBehaviour> entityBehaviours;
 
+        public virtual void Start() {
+            for (int i = 0; i < entityBehaviours.Count; i++) {
+                entityBehaviours[i].Initialize();
+            }
+        }
+
         public virtual void SetActionTargetEntities(Entity[] entities) {
             for (int i = 0; i < entityBehaviours.Count; i++) {
                 entityBehaviours[i].OnSetActionTargetEntities(entities);
@@ -37,8 +43,36 @@ namespace RTS2.Entities
             }
         }
 
-        public virtual BehaviourDependency[] GetBehaviourDependencies() {
-            return new BehaviourDependency[0];
+        public EntityBehaviour GetBehaviour(System.Type behaviourType) {
+           for (int i = 0; i < entityBehaviours.Count; i++) {
+                if (entityBehaviours[i].GetType() == behaviourType) return entityBehaviours[i];
+           }
+            throw new UnityException("Entity does not have behaviour of type " + behaviourType);
+        }
+
+        public List<BehaviourDependency> GetBehaviourDependencies() {
+            List<BehaviourDependency> dependencies = new List<BehaviourDependency>();
+            for (int i = 0; i < entityBehaviours.Count; i++) {
+                BehaviourDependency[] behaviourDependencies = entityBehaviours[i].GetDependencies();
+                for (int j = 0; j < behaviourDependencies.Length; j++) {
+                    if (!dependencies.Contains(behaviourDependencies[j])) {
+                        dependencies.Add(behaviourDependencies[j]);
+                    }
+                }
+            }
+
+            return dependencies;
+        }
+
+        public void AssertBehaviourDependencies() {
+            List<BehaviourDependency> dependencies = GetBehaviourDependencies();
+            for (int i = 0; i < dependencies.Count; i++) {
+                for (int j = 0; j < entityBehaviours.Count; j++) {
+                    if (entityBehaviours[j].GetType() == dependencies[i].behaviourType) break;
+                }
+
+                throw new UnityException("Entity does not meet dependency of type " + entityBehaviours[i].GetType());
+            }
         }
 
         public virtual string GetEntityName() {

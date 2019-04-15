@@ -5,16 +5,28 @@ using UnityEngine;
 using RTS2.Entities;
 namespace RTS2.Input
 {
+    /// <summary>
+    ///     Resolves interaction for passing to an interaction consumer
+    /// </summary>
     public class CursorInput : MonoBehaviour
     {
         public InteractionConsumer interactionConsumer;
         public CursorCameraInput cursorCameraInput;
 
-        bool primaryDown = false;
-        bool secondaryDown = false;
-        bool modifierDown = false;
-        
+        private bool primaryDown = false;
+        public bool PrimaryDown { get { return primaryDown; } }
+
+        private bool secondaryDown = false;
+        public bool SecondaryDown { get { return secondaryDown; } }
+
+        private bool modifierDown = false;
+        public bool ModifierDown { get { return modifierDown; } }
+
+        private Vector3 cursorPosition = Vector2.zero;
+        public Vector3 CursorPosition {  get { return cursorPosition; } }
+
         private void Update() {
+            cursorPosition = UnityEngine.Input.mousePosition;
                 primaryDown = UnityEngine.Input.GetButtonDown("Primary");
                 secondaryDown = UnityEngine.Input.GetButtonDown("Secondary");
                 modifierDown = UnityEngine.Input.GetButtonDown("Shift");

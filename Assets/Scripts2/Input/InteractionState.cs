@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace RTS2.Input {
-public class InteractionState
+    public class InteractionState
     {
         private EInputModifier inputModifier;
         private EInputType inputType;

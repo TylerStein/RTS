@@ -4,6 +4,9 @@ using RTS2.Entities;
 
 namespace RTS2.Player
 {
+    /// <summary>
+    ///     Holds player state data and classes
+    /// </summary>
     public class PlayerState : MonoBehaviour
     {
         [SerializeField] private int playerIndex;

@@ -4,6 +4,9 @@ using RTS2.Player;
 using RTS2.Entities;
 namespace RTS2.Input
 {
+    /// <summary>
+    ///     Connects interaction with a selection handler
+    /// </summary>
     public class InteractionConsumer : MonoBehaviour
     {
         public PlayerState playerState;

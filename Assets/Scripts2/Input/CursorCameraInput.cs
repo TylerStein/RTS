@@ -1,33 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CursorCameraInput : MonoBehaviour
+namespace RTS2.Input
 {
-    public Vector3 lastScreenMousePosition = Vector3.zero;
-    public Vector3 lastWorldMouse = Vector3.zero;
-    public Vector3 mouseForward = Vector3.zero;
+    /// <summary>
+    ///     Generic mosue input handler
+    /// </summary>
+    public class CursorCameraInput : MonoBehaviour
+    {
+        public Vector3 lastScreenMousePosition = Vector3.zero;
+        public Vector3 lastWorldMouse = Vector3.zero;
+        public Vector3 mouseForward = Vector3.zero;
 
-    public float worldMouseDistance = 5.0f;
-    public float maxHitDistance = 50;
+        public float worldMouseDistance = 5.0f;
+        public float maxHitDistance = 50;
 
-    public Camera inputCamera;
+        public Camera inputCamera;
 
-    private Transform _cameraTransform;
+        private Transform _cameraTransform;
 
-    void Start() {
-        lastScreenMousePosition = Vector3.zero;
-        inputCamera = Camera.main;
-        _cameraTransform = inputCamera.transform;
-    }
+        void Start() {
+            lastScreenMousePosition = Vector3.zero;
+            inputCamera = Camera.main;
+            _cameraTransform = inputCamera.transform;
+        }
 
-    void Update() {
-        lastScreenMousePosition = Input.mousePosition;
+        void Update() {
+            lastScreenMousePosition = UnityEngine.Input.mousePosition;
 
-        lastWorldMouse = inputCamera.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, worldMouseDistance));
-        mouseForward = (lastWorldMouse - _cameraTransform.position).normalized;
-    }
+            lastWorldMouse = inputCamera.ScreenToWorldPoint(UnityEngine.Input.mousePosition + new Vector3(0, 0, worldMouseDistance));
+            mouseForward = (lastWorldMouse - _cameraTransform.position).normalized;
+        }
 
-    public bool Raycast(out RaycastHit hit) {
-        return Physics.Raycast(_cameraTransform.position, mouseForward, out hit, maxHitDistance, 1 << 0);
+        public bool Raycast(out RaycastHit hit) {
+            return Physics.Raycast(_cameraTransform.position, mouseForward, out hit, maxHitDistance, 1 << 0);
+        }
     }
 }
