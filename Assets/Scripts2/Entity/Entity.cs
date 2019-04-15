@@ -1,18 +1,19 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
-using RTS2.Entity.Behaviour;
+using RTS2.Entities.Behaviours;
 using RTS2.Assets;
 
-namespace RTS2.Entity
+namespace RTS2.Entities
 {
-    public class Entity : MonoBehaviour, IEntity
+    public class Entity : MonoBehaviour
     {
         [SerializeField] protected int playerIndex;
         [SerializeField] protected List<EntityBehaviour> entityBehaviours;
 
-        public virtual void SetActionTargetEntities(IEntity[] entities) {
+        public virtual void SetActionTargetEntities(Entity[] entities) {
             for (int i = 0; i < entityBehaviours.Count; i++) {
                 entityBehaviours[i].OnSetActionTargetEntities(entities);
             }
@@ -60,7 +61,11 @@ namespace RTS2.Entity
             playerIndex = index;
         }
 
-        public virtual void AddActionTargetEntities(IEntity[] entities) {
+        public virtual string GetAssetName() {
+            return "NULL";
+        }
+
+        public virtual void AddActionTargetEntities(Entity[] entities) {
             //
         }
 

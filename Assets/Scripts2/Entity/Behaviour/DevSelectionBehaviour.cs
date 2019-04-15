@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace RTS2.Entity.Behaviour {
+namespace RTS2.Entities.Behaviours {
     public class DevSelectionBehaviour : EntityBehaviour
     {
         Renderer entityRenderer;
-        public DevSelectionBehaviour() : base(new BehaviourDependency[0]) {
+        public DevSelectionBehaviour() : base() {
             //
         }
 

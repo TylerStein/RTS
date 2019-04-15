@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RTS2.Entity.Behaviour
+namespace RTS2.Entities.Behaviours
 {
     public struct BehaviourDependency
     {
@@ -16,9 +16,13 @@ namespace RTS2.Entity.Behaviour
             behaviourDependencies = dependencies;
         }
 
-        [SerializeField] protected Component entity;
-        public IEntity Entity {
-            get { return ((IEntity)entity); }
+        protected EntityBehaviour() {
+            behaviourDependencies = new BehaviourDependency[0];
+        }
+
+        [SerializeField] protected Entity entity;
+        public Entity Entity {
+            get { return entity; }
         }
 
         public BehaviourDependency[] GetDependencies() {
@@ -33,7 +37,7 @@ namespace RTS2.Entity.Behaviour
             //
         }
 
-        public virtual void OnSetActionTargetEntities(IEntity[] entities) {
+        public virtual void OnSetActionTargetEntities(Entity[] entities) {
             //
         }
 

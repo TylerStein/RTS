@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 using RTS2.Assets;
-using RTS2.Entity.Behaviour;
+using RTS2.Entities.Behaviours;
 
-namespace RTS2.Entity
+namespace RTS2.Entities
 {
     public class PropEntity : Entity
     {

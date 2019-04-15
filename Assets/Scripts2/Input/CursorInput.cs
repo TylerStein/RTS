@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using RTS2.Entity;
+using RTS2.Entities;
 namespace RTS2.Input
 {
     public class CursorInput : MonoBehaviour
     {
-        public Component interactionConsumer;
+        public InteractionConsumer interactionConsumer;
         public CursorCameraInput cursorCameraInput;
 
         bool primaryDown = false;
@@ -23,13 +23,13 @@ namespace RTS2.Input
                     RaycastHit hit;
                     if (cursorCameraInput.Raycast(out hit)) {
                         InteractionState interactionState = new InteractionState(modifierDown ? EInputModifier.MULTI : EInputModifier.NONE, EInputType.PRIMARY);
-                        IEntity hitEntity = hit.collider.gameObject.GetComponent<IEntity>();
+                        Entity hitEntity = hit.collider.gameObject.GetComponent<Entity>();
                         if (hitEntity != null) {
-                            InteractionEvent<IEntity> interactionEvent = new InteractionEvent<IEntity>(hitEntity, interactionState);
-                            ((IInteractionConsumer)interactionConsumer).ConsumeEntityInteraction(interactionEvent);
+                            InteractionEvent<Entity> interactionEvent = new InteractionEvent<Entity>(hitEntity, interactionState);
+                            interactionConsumer.ConsumeEntityInteraction(interactionEvent);
                         } else {
                             InteractionEvent<Vector3> interactionEvent = new InteractionEvent<Vector3>(hit.point, interactionState);
-                            ((IInteractionConsumer)interactionConsumer).ConsumePositionInteraction(interactionEvent);
+                            interactionConsumer.ConsumePositionInteraction(interactionEvent);
                         }
 
                     }
@@ -37,13 +37,13 @@ namespace RTS2.Input
                     RaycastHit hit;
                     if (cursorCameraInput.Raycast(out hit)) {
                         InteractionState interactionState = new InteractionState(modifierDown ? EInputModifier.MULTI : EInputModifier.NONE, EInputType.SECONDARY);
-                        IEntity hitEntity = hit.collider.gameObject.GetComponent<IEntity>();
+                        Entity hitEntity = hit.collider.gameObject.GetComponent<Entity>();
                         if (hitEntity != null) {
-                            InteractionEvent<IEntity> interactionEvent = new InteractionEvent<IEntity>(hitEntity, interactionState);
-                            ((IInteractionConsumer)interactionConsumer).ConsumeEntityInteraction(interactionEvent);
+                            InteractionEvent<Entity> interactionEvent = new InteractionEvent<Entity>(hitEntity, interactionState);
+                            interactionConsumer.ConsumeEntityInteraction(interactionEvent);
                         } else {
                             InteractionEvent<Vector3> interactionEvent = new InteractionEvent<Vector3>(hit.point, interactionState);
-                            ((IInteractionConsumer)interactionConsumer).ConsumePositionInteraction(interactionEvent);
+                            interactionConsumer.ConsumePositionInteraction(interactionEvent);
                         }
 
                     }

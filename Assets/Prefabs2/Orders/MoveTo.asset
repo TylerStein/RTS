@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72856abd47315d547bb063fd3dc66d08, type: 3}
+  m_Name: MoveTo
+  m_EditorClassIdentifier: 
+  orderName: MoveTo
+  metaOrder: {fileID: 11400000, guid: ef63a9f6fdec97f478223a2d8b2fef52, type: 2}
+  orderBehaviour: {fileID: 11400000, guid: a11a62a392c234b408c39c10746e5d2b, type: 2}
