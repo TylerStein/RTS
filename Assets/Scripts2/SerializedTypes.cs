@@ -14,10 +14,10 @@ namespace RTS2.SerializedTypes
     public class SerializedGameObjectDictionary : SerializableDictionaryBase<string, GameObject> { }
 
     [System.Serializable]
-    public class SerializedOrderDictionary : SerializableDictionaryBase<string, Order> { }
+    public class SerializedOrderDictionary : SerializableDictionaryBase<string, OrderBehaviour> { }
 
     [System.Serializable]
-    public class SerializedOrderDefinitionDictionary : SerializableDictionaryBase<string, OrderDefinition> { }
+    public class SerializedOrderDefinitionDictionary : SerializableDictionaryBase<string, OrderBehaviour> { }
 
     [System.Serializable]
     public struct StringList

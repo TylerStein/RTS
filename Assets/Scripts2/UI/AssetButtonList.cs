@@ -15,7 +15,6 @@ namespace RTS2.UI
 
         public GameObject listContainer;
         
-
         public Dictionary<EAssetType, List<string>> namesByLabel = new Dictionary<EAssetType, List<string>>();
         public Dictionary<string, Button> buttonsByName = new Dictionary<string, Button>();
 

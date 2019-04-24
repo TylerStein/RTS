@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RTS2.SerializedTypes;
 namespace RTS2.Assets
 {
-    [CreateAssetMenu(fileName = "New Entity Manifest", menuName = "Manifest/Entity Manifest")]
+    [CreateAssetMenu(fileName = "New Entity Manifest", menuName = "RTS2/Manifest/Entity Manifest")]
     public class EntityManifest : ScriptableObject
     {
         [SerializeField] protected SerializedGameObjectDictionary propDictionary;

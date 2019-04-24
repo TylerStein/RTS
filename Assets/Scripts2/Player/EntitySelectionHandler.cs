@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using RTS2.Entities;
+using RTS2.UI;
 namespace RTS2.Player
 {
     /// <summary>
@@ -9,10 +10,11 @@ namespace RTS2.Player
     /// </summary>
     public class EntitySelectionHandler : MonoBehaviour
     {
+        public ContextActionsButtonList contextActionsButtonList;
         private List<Entity> selectedEntities = new List<Entity>();
 
         public Entity GetSelectedEntity(int index = 0) {
-            if (selectedEntities.Count >= index) throw new UnityException("EntityIndexOutOfBouns: There is no entity at index " + index + "!");
+            if (index >= selectedEntities.Count) throw new UnityException("EntityIndexOutOfBounds: There is no entity at index " + index + "!");
             else return selectedEntities[index];
         }
 
@@ -37,6 +39,7 @@ namespace RTS2.Player
                 entities[i].SetSelected();
             }
             selectedEntities.AddRange(entities);
+            contextActionsButtonList.OnEntitySelected(selectedEntities[0].GetAssetName());
         }
 
         public void ClearSelectedEntities() {
@@ -44,6 +47,7 @@ namespace RTS2.Player
                 selectedEntities[i].UnsetSelected();
             }
             selectedEntities.Clear();
+            contextActionsButtonList.ClearButtons();
         }
 
         public void SetActionTargetEntities(Entity[] entities) {

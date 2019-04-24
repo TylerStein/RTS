@@ -8,16 +8,8 @@ namespace RTS2.Assets
     {
         [SerializeField] protected OrderManifest orderManifest;
 
-        public Order GetOrder(string orderIdentifier) {
-            return GetOrderDefinition(orderIdentifier).order;
-        }
-
-        public MetaOrder GetMetaOrder(string orderIdentifier) {
-            return GetOrderDefinition(orderIdentifier).metaOrder;
-        }
-
-        public OrderDefinition GetOrderDefinition(string orderIdentifier) {
-            return orderManifest.GetOrderDefinition(orderIdentifier);
+        public OrderBehaviour GetOrder(string orderIdentifier) {
+            return orderManifest.GetOrder(orderIdentifier);
         }
 
         public ICollection<string> GetOrderNames() {
